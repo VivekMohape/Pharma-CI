@@ -1,9 +1,8 @@
 import streamlit as st
 import os
 import sys
-sys.path.append("src")  # <- manually add src to import path
+from agent_orchestrator import AgentOrchestrator
 
-from orchestrator.agent_orchestrator import AgentOrchestrator
 
 
 # UI Setup
