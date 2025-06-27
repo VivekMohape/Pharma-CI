@@ -1,0 +1,14 @@
+streamlit
+Flask
+python-dotenv
+openai
+pydantic
+faiss-cpu
+sentence-transformers
+beautifulsoup4
+requests
+langsmith
+langchain
+lxml
+selenium
+instructor
