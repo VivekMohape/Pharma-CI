@@ -1,6 +1,10 @@
 import streamlit as st
 import os
-from src.orchestrator.agent_orchestrator import AgentOrchestrator
+import sys
+sys.path.append("src")  # <- manually add src to import path
+
+from orchestrator.agent_orchestrator import AgentOrchestrator
+
 
 # UI Setup
 st.set_page_config(page_title="Pharma CI Streamlit", layout="wide")
