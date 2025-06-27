@@ -9,7 +9,6 @@ class AgentOrchestrator:
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise ValueError("OPENAI_API_KEY not found. Please set it via Streamlit UI or .env file.")
-
         openai.api_key = api_key
 
     def run(self, input_text: str) -> Dict[str, Any]:
@@ -31,14 +30,14 @@ class AgentOrchestrator:
 
     def generate_summary(self, text: str) -> str:
         """Uses OpenAI to generate a basic summary."""
-        response = self.client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Summarize the following pharmaceutical press release."},
                 {"role": "user", "content": text}
             ]
         )
-        return response.choices[0].message.content.strip()
+        return response.choices[0].message["content"].strip()
 
     def extract_competitors(self, text: str) -> list:
         """Fake static competitor extraction (replace with NLP or NER)."""
