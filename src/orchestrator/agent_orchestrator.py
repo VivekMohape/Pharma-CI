@@ -1,6 +1,6 @@
 import os
 from typing import Dict, Any
-from openai import OpenAI
+import openai
 import json
 
 class AgentOrchestrator:
@@ -10,7 +10,7 @@ class AgentOrchestrator:
         if not api_key:
             raise ValueError("OPENAI_API_KEY not found. Please set it via Streamlit UI or .env file.")
 
-        self.client = OpenAI(api_key=api_key)
+        openai.api_key = api_key
 
     def run(self, input_text: str) -> Dict[str, Any]:
         """
